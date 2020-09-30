@@ -17,5 +17,8 @@ Arguments:
   -h, --help            show this help message and exit
   -e EMAIL, --email EMAIL  NCBI requires email to connect to the server.
   -l LIST, --list LIST     File with a list o NCBI TaxIDs (one per line).
-  -out OUT, --out OUT      Output File
+  -o OUT, --out OUT        Output File
+  -f LOG, --log LOG        Log file (filed TaxIDs). Default: log.log 
 ```
+
+The script is processing 100 TaxIDs in 1-2 second.  
