@@ -10,8 +10,8 @@ The script takes a list of NCBI TaxIDs (one per line) and translate them to lina
  - tqdm
  
 Usage:
-```python
-$ get_taxonomy.py [-h] [-e EMAIL] [-l LIST] [-out OUT]
+```
+$ python3 get_taxonomy.py [-h] [-e EMAIL] [-l LIST] [-out OUT]
 
 Arguments:
   -h, --help            show this help message and exit
