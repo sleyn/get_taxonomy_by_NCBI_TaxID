@@ -78,7 +78,7 @@ lineage_df = pd.DataFrame({
     'strain': ['-']*len(taxids),
     'serogroup': ['-']*len(taxids),
     'biotype': ['-']*len(taxids),
-    'Full_Linage': ['-']*len(taxids),
+    'Full_Lineage': ['-']*len(taxids),
     'Full_Rank': ['-']*len(taxids),
     'All_TaxIDs': ['-']*len(taxids),
     'Current_TaxID': ['-']*len(taxids)
@@ -118,13 +118,13 @@ for taxid_list in tqdm(taxids_200):
                 lineage_df.loc[taxid, records[record]['LineageEx'][i]['Rank']] = records[record]['LineageEx'][i]['ScientificName']
 
         lineage_full = ';'.join([records[record]['LineageEx'][i]['ScientificName'] for i in range(len(records[record]['LineageEx']))])
-        lineage_df.loc[taxid, 'Full_Linage'] = lineage_full
+        lineage_df.loc[taxid, 'Full_Lineage'] = lineage_full
         rank_full = ';'.join([records[record]['LineageEx'][i]['Rank'] for i in range(len(records[record]['LineageEx']))])
         lineage_df.loc[taxid, 'Full_Rank'] = rank_full
         lineage_df.loc[taxid, 'All_TaxIDs'] = ';'.join([str(t) for t in all_taxids_for_record])
         lineage_df.loc[taxid, 'Current_TaxID'] = records[record]['TaxId']
 
-not_fetched = lineage_df.query("Full_Linage == '-'").index
+not_fetched = lineage_df.query("Full_Lineage == '-'").index
 with open(args.log, 'w') as log_file:
     [log_file.write(taxid_nf + '\n') for taxid_nf in not_fetched]
 
